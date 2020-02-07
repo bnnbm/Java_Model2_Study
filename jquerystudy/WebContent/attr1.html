@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- /WebContent/attr1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>attr1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+	   //모든 이미지 태그의 width를 200으로 설정
+	   //attr : 속성 등록, 조회
+	   //$("img").attr("width",200)
+	   //모든 이미지 태그의 width를 100,200,300으로 설정
+/*	   $("img").attr("width",function(index){
+		   return (index+1) * 100;
+	   }) */
+	   //모든 이미지 태그의 width를 100,200,300으로, height는 200설정
+	   $("img").attr({
+		   width:function(index){
+			   return (index+1) * 100;
+		   },
+		   height : 200
+	   });
+	   //모든 이미지 태그의 src 속성을 제거
+	   $("img").removeAttr("src");
+   })
+</script>
+</head>
+<body>
+   <img src="Chrysanthemum.jpg"/>
+   <img src="Desert.jpg"/>
+   <img src="Hydrangeas.jpg"/>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- /WebContent/selectex1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>select 박스에서 선택된 항목을 alert,prompt 창에 띄우기</title>
+<script type="text/javascript">
+   function nameprint(a) { //this 떄문에 s를 a나 아무거나 해도됨
+	   s = document.f.s; //a를 무시하고 s에 직접 값을 넣어줌
+	   //data : prompt 메세지창에서 입력받은 내용 저장
+	   var data = prompt(s.value);
+       //data 값으로 select의 선택된 값을 변경
+	   s.value = data;
+   }
+</script>
+</head>
+<body>
+<form name="f">
+   과일 : <select name="s" onchange="nameprint(this)">
+      <option>사과</option><option>감</option>
+      <option>배</option><option>딸기</option>   
+   </select>
+</form>
+</body>
+</html>

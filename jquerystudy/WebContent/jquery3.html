@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- /WebContent/jquery3.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>select 태그의 선택된 값을 5초후에 alert 창으로 띄우기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ * $(document).ready(function() {
+	 
+ })
+ */
+   $(function(){
+	   //setTimeout(함수,밀리초) : 밀리초 이후에 함수를 실행.
+	   //option:selected : option 태그 중 선택된 option 태그
+	   setTimeout(function() {
+		 var value = $("select > option:selected").val();
+		 alert(value)
+	   },5000)
+   })
+</script>
+</head>
+<body>
+<select>
+   <option>Apple</option><option>Bag</option><option>Cat</option>
+   <option>Dog</option><option>Elephant</option>
+</select>
+</body>
+</html>

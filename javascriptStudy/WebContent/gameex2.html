@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- /WebContent/gameex2.html
+   1. 자바스크립트에서 객체 생성하기
+   2. 태그 위치 설정하기
+   3. 마우스이벤트 처리 -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>사과잡기게임</title>
+<script type="text/javascript">
+   function nextRandomInteger(limit) {
+	   return Math.round(Math.random() * limit);	   
+   }
+   function randomSpeed(maxSpeed) {
+	   return Math.random() * maxSpeed - Math.random() * maxSpeed;
+   }
+   var canvasWidth = 700;
+   var canvasHeight = 500;
+   var total = 10;
+   function MovingImg() { // 생성자 정의. new MovingText() 호출
+	   this.x = nextRandomInteger(canvasWidth); // 0~700 사이의 값
+	   this.y = nextRandomInteger(canvasHeight); // 0~500 사이의 값
+	   this.vX = randomSpeed(2); // -2 ~ 2 사이의 값
+	   this.vY = randomSpeed(2); // -2 ~ 2 사이의 값
+	   // document : 문서 객체
+	   // <h1 style='background-color:white'>A</h1> 밑에서 클릭시 B로 바뀜
+	   this.body = document.createElement("img");
+	   this.body.src = "img/apple.gif";
+	   this.body.setAttribute("style","background-color:white"); // 속성등록
+	   this.body.style.position = "absolute"; // 위치지정, 맘대로 돌아다녀
+	   var selectImg = this.body;
+	   // 클릭 이벤트 등록 (마우스클릭시 해당 함수 호출)
+	   this.body.onclick = function() {
+		   if(selectImg.src.indexOf("banana") > -1) return;
+		   --total;
+		   alert("남은 사과 수:" + total);
+		   selectImg.src = "img/banana.gif"; // 해당 문자를 B로 바꿔
+	   }
+	   // <body><h1 ...>A</h1></body>
+	   document.body.appendChild(this.body);
+   }
+   // MovingImg 객체의 멤버 메서드 정의
+   MovingImg.prototype.move = function(){
+	   if(this.body.src.indexOf("banana") > -1) return;
+	   if(this.x < 0 || this.x > canvasWidth) {
+		   this.vX *= -1;
+	   }
+	   if(this.y < 0 || this.y > canvasHeight) {
+		   this.vY *= -1;
+	   }
+	   this.x += this.vX;
+	   this.y += this.vY;
+	   this.body.style.left = this.x + "px";
+	   this.body.style.top = this.y + "px";
+   }
+   // window가 로드 될때 실행
+   window.onload = function(){
+	   var MovingImgs = []; // [] : 자바스크립트의 배열 표시
+	   for(var i=0; i<10; i++) { // 10개의 A 글자가 body에 추가됨
+		   MovingImgs.push(new MovingImg());
+	   }
+	   var game = setInterval(function() {
+		   for(var i in MovingImgs) { // 개선된 for 구문
+			   if(total < 4) {
+				   alert("게임 종료")
+				   clearInterval(game);
+				   return;
+			   }
+			   MovingImgs[i].move(); // A 글자의 위치가 변경됨.
+		   }
+	   },1000/60);
+   }
+</script>
+</head>
+<body>
+
+</body>
+</html>

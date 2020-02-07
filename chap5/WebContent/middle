@@ -1,0 +1,27 @@
+1. jsp 내장객체 : jsp 페이지에서 선언도, 생성도 필요없이 이미 존재하는 객체
+                           자바 영역에서 사용되는 객체
+   8 + 1
+   - request : 요청객체
+   - response : 응답객체, 리다이렉트
+   - pageContext : forward, 현재 페이지의 자원 정보 저장
+   - session : 세션객체, 브라우저의 상태 정보를 저장하는 객체
+   - application : 웹어플리케이션 객체   
+   - out : 브라우저 출력 객체
+   - config : 서블릿의 상태정보를 저장하는 객체, 주로 서블릿을 통해 사용함, jsp에서는 거의 사용안함.
+   - page : this임, 거의 사용안함
+   - exception : 예외객체, 일반페이지에서는 없고 예외 페이지에서만 존재    
+    
+page 영역 : 1개의 jsp 저장,  pageContext객체
+request 영역 : 1개의 요청, request객체 공유                                    속성등록 setAttribute
+session 영역 : 1개의 브라우저, session객체 공유                               속성사용 getAttribute
+application영역 : 1개의 웹어플리케이션, application객체 공유           속성삭제 removeAttribute
+                           
+2. 스크립트 : 자바 영역
+   - 스크립트릿 : <%    %> : 알고리즘
+               _jspService 메서드의 내부에 생성되는 부분
+   - 표현식      : <%=   %> : 브라우저에 값을 출력
+               out.print(...);
+                          주석은 /*    */ 표현만 가능
+                          뒤에 ; 구현되면 안됨
+   - 선언문      : <%!   %> : 멤버변환됨.
+   

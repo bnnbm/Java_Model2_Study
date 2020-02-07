@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- /WebContent/imagemoveex.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>이미지 이동하기</title>
+<script type="text/javascript">
+   function moveimg() {
+	   var left = layer1.style.left; //0px
+	   var top = layer1.style.top; //50px
+	   //mx : 0
+	   mx = parseInt(left.substring(0,left.indexOf("px")));
+	   //my : 50
+	   my = parseInt(top.substring(0,top.indexOf("px")));
+	   layer1.style.left = mx+10+"px";
+	   layer1.style.top = my+10+"px";
+	   if(mx > 100){
+		   //setTimeout 설정 해제
+		   clearTimeout("moveimg()");
+		   interval = setInterval(function(){
+			   layer1.style.left ="0px"
+			   layer1.style.top ="100px"
+			   //-은 변수에 사용할수 없으므로, 변경되는 부분을 대문자로 변경하여 접근
+			   layer1.style.backgroundColor = "red"
+		   },2000)
+//		   clearInterval(interval);
+	   } else {
+		   //0.3당 moveimg() 함수 호출
+		   //콜백함수 : 호출한 함수가 다시 나의 함수를 호출
+		   setTimeout("moveimg()",300); // 밀리초단위
+	   }
+   }
+
+</script>
+</head>
+<body>
+<h3>문제 : 이미지 이동 후 다시 처음으로 이동하기</h3>
+<input type="button" value="이동" onclick="moveimg()">
+<div id="layer1"
+    style="left:0px; top:100px; position:absolute; background-color:blue">
+    <img src="img/0_over.jpg">
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- /mailstudy/WebContent/mailform.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>메일작성</title>
+</head>
+<body>
+<h2>메일 보내기</h2><HR>
+<form name=form1 method=post action=mailsend.jsp>
+   <table border="1" style="border-collapse:collapse;">
+   <tr>
+       <td>보내는 사람</td>
+       <td><input type="text" name="sendid" value="king372@naver.com"></td>
+   </tr>
+   <tr>
+       <td>비밀번호</td>
+       <td><input type="password" name="sendpw"></td>
+   </tr>
+   <tr>
+       <td>받는 사람</td>
+       <td><input type="text" name="recipient" value="수신자 메일 주소"></td>
+   </tr>
+   <tr>
+       <td>제목</td>
+       <td><input type="text" name="title"></td>
+   </tr>
+   <tr>
+       <td>메시지 형식</td>
+       <td><select name=mtype>
+           <option value="text/plain;charset=euc-kr">TEXT
+           <option value="text/html;charset=euc-kr">HTML
+       </select></td>
+   </tr>
+   <tr>
+       <td colspan=2><textarea name=contents cols=40 rows=10></textarea></td>
+   </tr>
+   <tr>
+       <td colspan=2 align=center><input type=submit value="전송"></td>
+   </tr>
+   </table>
+</form>
+</body>
+</html>

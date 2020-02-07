@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- /WebContent/gugudan2.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>구구단 출력하기</title>
+<style type="text/css">
+   table {
+      width : 100%;
+      border-collapse : collapse;
+   }
+   th,td {
+      border : 3px solid #bcbcbc;
+      text-align : center;
+      padding : 8px;
+   }
+   th {
+      background-color : #e2e2e2; color : #111111;
+   }
+   td {
+      background-color : #f2f2f2;						
+   }
+   caption {
+      color : #111111;
+      font-size : 20px;
+      background-color : #ffffff;
+   }
+</style>
+<script type="text/javascript">
+   function ver() {
+	   var html = "<table><caption>세로출력</caption>";
+	   for(i=2; i<=9; i++) {
+		   html += "<tr><th>"+i+"단</th></tr>";
+		   for(j=2; j<=9; j++) {
+		       html += "<tr><td>" + i + "*" + j + "=" + (i*j) + "</td></tr>"
+		   }
+	   }
+	   html += "</table>"
+	   result.innerHTML = html;
+   }
+   
+   
+   function hor() {
+	   var html = "<table><caption>가로출력</caption>"
+	   html += "<tr>"
+	   for(i=2; i<=9; i++) {
+		   html += "<th>"+i+"단</th>";
+	   }
+	   html += "</tr>"
+		   for(i=2; i<=9; i++) {
+			   html += "<tr>"
+			   for(j=2; j<=9; j++) {
+			       html += "<td>" + j + "*" + i + "=" + (j*i) + "</td>"
+			   }
+			   html += "</tr>"
+		   }
+		   html += "</table>"
+		   result.innerHTML = html;
+	   }
+   
+   
+   function hor2() {
+	   var html = "<table><caption>2단출력</caption>"
+	   html += "<tr>"
+	   for(i=2; i<=5; i++) {
+		   html += "<th>"+i+"단</th>";
+	   }
+	   html += "</tr>"
+		   for(i=2; i<=9; i++) {
+			   html+="<tr>"
+			   for(j=2; j<=5; j++) {
+			       html += "<td>" + j + "*" + i + "=" + (j*i) + "</td>"
+			   }
+			   html += "</tr>"
+			   html += "<tr>"
+		   }
+		   for(i=6; i<=9; i++) {
+			   html += "<th>"+i+"단</th>";
+		   }
+		   html += "</tr>"
+			   for(i=2; i<=9; i++) {
+				   html += "<tr>"
+				   for(j=6; j<=9; j++) {
+				       html += "<td>" + j + "*" + i + "=" + (j*i) + "</td>"
+				   }
+				   html += "</tr>"
+			   }
+			   html += "</table>"
+			   result.innerHTML = html;
+	   }
+   
+   
+   function hor3() {
+	   var html = "<table><caption>2단출력</caption>"  
+	   for(i=2; i<=9; i+=4) {
+		   html += "<tr>"
+		   //단 표시
+		   for(k=0; k<4; k++){
+			   html += "<th>" + (i+k) + "단</th>";
+		   }		   
+	   html += "</tr>"
+		   for(j=2; j<=9; j++) { // j는 항
+			   html+="<tr>"
+			   for(k=0; k<4; k++) { // k는 단
+			       html += "<td>" + (i+k) + "*" + j + "=" + ((i+k)*j) + "</td>";
+			   }
+			   html += "</tr>"
+			   }
+	   }
+			   html += "</table>"
+			   result.innerHTML = html;
+   }
+</script>
+</head>
+<body>
+<h3>2단에서 9단까지의 구구단을 출력하기</h3>
+<input type="button" value="세로출력" onclick="ver()">
+<input type="button" value="가로출력" onclick="hor()">
+<input type="button" value="2단출력" onclick="hor3()">
+<div id="result"></div>
+</body>
+</html>

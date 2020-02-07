@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- /WebContent/Test1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>약수 구하기</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript">
+   function go() {
+	   var num = document.f.num.value
+	   var html = "<table class='w3-table-all'><caption>"+num+"의 약수</caption>";
+	   html += "<tr>"
+	   for(i=1;i<=num;i++){
+		   if(num%i==0)
+			   html += "<td>" + i + "</td>";
+	   }
+	   html += "</tr>"
+	   html += "</table>";
+	   result.innerHTML = html;
+   }
+</script>
+</head>
+<body>
+<form name="f">
+<input type="text" id="num">
+<input type="button" value="약수구하기" onclick="go()">
+<br><br><br>
+<div id="result"></div>
+</form>
+</body>
+</html>

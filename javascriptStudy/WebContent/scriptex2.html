@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- /WebContent/scriptex2.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>태그의 값을 다른 태그로 복사하기</title>
+<script type="text/javascript">
+   function copyvalue() {
+	   document.f.num2.value = document.f.num1.value;	   
+   }
+   function numsum() {
+	   var num = document.f2.num.value;
+	   var sum = 0;
+	   var evensum = 0;
+	   var oddsum = 0;
+	   for(var i=1; i<=num; i++){
+		   sum += i;
+		   if(i%2==0) evensum += i;
+		   else oddsum += i;
+	   }
+	   document.f2.sum.value = sum;
+	   document.f2.evensum.value = evensum;
+	   document.f2.oddsum.value = oddsum;
+   }
+</script>
+</head>
+<body>
+<form name="f">
+   <input type="text" name="num1"><br>
+   <input type="text" name="num2">
+   <input type="button" value="복사" onclick="copyvalue()">
+</form>
+<h1>입력된 숫자까지의 합계 구하기</h1>
+<form name="f2">
+   <input type="text" name="num">
+   <input type="button" value="합계" onclick="numsum()"><br>
+       전체 합계 : <input type="text" name="sum"><br>
+       짝수 합계 : <input type="text" name="evensum"><br>
+       홀수 합계 : <input type="text" name="oddsum">
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- /WebContent/zindexex1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>zindex 속성 예제</title>
+<!-- 
+    z-index 속성 : 숫자값이 크면 위쪽에 배치됨 음수 사용 가능.
+                 position 속성과 같이 사용해야 됨.
+    position 속성
+       1. static : 차례대로 배치. position의 기본값. z-index 사용불가
+       2. relative : 앞의 요소의 상대좌표
+       3. fixed    : 절대좌표, 기준이 브라우저 기준. 스크롤시에 화면이 고정됨
+       4. absolute : 절대좌표, 기준이 document임 
+    -->
+<style type="text/css">
+   div {width:200px; height:200px;}
+   div:hover {color:#fff; background-color:black;}
+   .p0 {background-color:pink;}
+   .p1 {position:fixed; bottom:10px; right:100px; background-color:yellow;}
+   .p2 {position:relative; top:10px; left:10px; background-color:gray;}
+   .p3 {position:absolute; bottom:10px; right:100px; background-color:blue;}
+   .p4 {position:absolute; top:150px; left:150px; background-color:red;}
+</style>
+</head>
+<body>
+<div class="p0">p0 box</div>
+<div class="p1">p1 box</div>
+<div class="p2">p2 box</div>
+<div class="p3">p3 box</div>
+<div class="p4">p4 box</div>
+</body>
+</html>

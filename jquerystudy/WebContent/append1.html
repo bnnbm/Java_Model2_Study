@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- /WebContent/append1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>동적으로 생성된 태그요소를 화면에 추가하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+	   //이미지 태그를 추가하고, Chrysanthemum.jpg 이미지를 보여주기
+//	   $("<img />").attr("src","Chrysanthemum.jpg").appendTo("body")
+       $("<img />",{
+    	   src : "Chrysanthemum.jpg",
+    	   width : 350,
+           height : 250
+       }).appendTo("body")
+       
+       var h1 = "<h1>Header1</h1>";
+       var h2 = "<h2>Header2</h2>";
+       $("body").append(h1,h2,h1,h2)
+   })
+</script>
+</head>
+<body>
+
+</body>
+</html>

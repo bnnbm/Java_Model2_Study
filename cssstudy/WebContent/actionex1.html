@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- /WebContent/actionex1.html -->
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>반응 선택자</title>
+<style type="text/css">
+   h1:hover {color : red;}
+   h1:active {color : blue;}
+/*
+   a:link : 초기상태. 방문한 적이 없는 경우
+   a:visited : 방문한 적이 있는 링크
+   a:hover : 마우스가 영역내부에 있는 경우
+   a:active : 클릭한 경우
+*/
+   a:link {color : blue;}
+   a:visited {color : red;}
+   a:hover {color : yellow;}
+   a:active {color : pink;}
+/* a 태그의 클래스 속성이 default 인 경우 방문한 사이트는 green으로 변경 */
+/* a 태그의 클래스 속성이 color 인 경우 마우스 커서가 내부로 들어온 경우 green으로 변경 */
+   a.default:visited {color : green;}
+   a.color:hover {color : green;}
+   h1.a1 {color:red;}
+   h1.b1 {background:black;}
+</style>
+</head>
+<body>
+<h1>반은 선택자 연습</h1>
+<table>
+<tr><tb>마우스를 올리면....<hr><b>기본값</b><br>
+<a href="http://www.google.com" class="default">구글</a>
+<hr>
+<a href="http://www.google.com" class="color">구글</a>
+</tb>
+</tr></table>
+<!-- h1태그의 class 속성이 a1인 경우 글자색이 빨강
+     b1 인 경우 배경색을 검정으로 설정 -->
+<h1 class="a1 b1">class 속성 a1 b1</h1>
+<h1 class="a1">class 속성 a1</h1>
+<h1 class="b1">class 속성 b1</h1>
+</body>
+</html>
